@@ -8,8 +8,8 @@ import { Footer } from "./components/Footer";
 
 
 export const metadata: Metadata = {
-  title: "IWEB fuera Britto",
-  description: "Grupo de mierda 🙄",
+  title: "Contestants & Battles",
+  description: "Qué sueño",
 };
 
 export default function RootLayout({

@@ -17,6 +17,7 @@ export default function ContestantItem({ contestant, onDelete }: Props) {
         </CardTitle>
       </CardHeader>
       <CardContent>
+        <p>ID: {contestant.id}</p>
         <p>Origin: {contestant.origin}</p>
         <p>Status: {contestant.status}</p>
         <p>
