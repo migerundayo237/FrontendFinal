@@ -12,7 +12,7 @@ interface Contestant {
   status: string;
 }
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/api';
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'https://backendfinaljplmvd.onrender.com';
 
 export const getContestants = async () => {
   const res = await axios.get(`${API_BASE}/contestants`);
@@ -24,12 +24,7 @@ export const createContestant = async (data: Partial<Contestant>) => {
   return res.data;
 };
 
-export async function deleteContestant(id: string) {
-  const res = await fetch(`http://localhost:3001/contestants/${id}`, {
-    method: 'DELETE',
-  });
-  if (!res.ok) {
-    const error = await res.text();
-    throw new Error(`Failed to delete contestant with ID ${id}: ${error}`);
-  }
-}
+export const deleteContestant = async (id: string) => {
+  const res = await axios.delete(`${API_BASE}/contestants/${id}`);
+  return res.data;
+};

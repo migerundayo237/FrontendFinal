@@ -10,7 +10,7 @@ export interface Battle {
   date?: string;
 }
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000/api';
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || 'https://backendfinaljplmvd.onrender.com';
 
 export const getBattles = async () => {
   const res = await axios.get(`${API_BASE}/battles`);
@@ -22,12 +22,8 @@ export const createBattle = async (data: Partial<Battle>) => {
   return res.data;
 };
 
-export async function deleteBattle(id: string) {
-  const res = await fetch(`http://localhost:3001/battles/${id}`, {
-    method: 'DELETE',
-  });
-  if (!res.ok) {
-    const error = await res.text();
-    throw new Error(`Failed to delete battle with ID ${id}: ${error}`);
-  }
-}
+export const deleteBattle = async (id: string) => {
+  const res = await axios.delete(`${API_BASE}/battles/${id}`);
+  return res.data;
+};
+
